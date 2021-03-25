@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning Essential Finance &#8212; My Jupyter Book</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="The Nature of Money" href="notes_on_modern_money.html" />
+    <link rel="prev" title="Studying Bitcoin’s Historical Volatility" href="bitcoin_realized_volatility.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">My Jupyter Book</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="bitcoin_realized_volatility.html">
+   Studying Bitcoin’s Historical Volatility
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Learning Essential Finance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notes_on_modern_money.html">
+   The Nature of Money
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/finance.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#defining-a-timeseries">
+   Defining a Timeseries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#log-returns">
+   Log Returns
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-normal-distribution-of-log-returns">
+   The Normal Distribution of Log Returns
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variance-and-volatility">
+   Variance and Volatility
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#square-root-of-time-rule">
+     Square Root of Time Rule
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="learning-essential-finance">
+<h1>Learning Essential Finance<a class="headerlink" href="#learning-essential-finance" title="Permalink to this headline">¶</a></h1>
+<p>You can either save or consume. If you save you can either keep in money or invest it.  In investing, you assume some nominal risks in return for a chance to a positive return. Investing make sense because information asymmetry and limit of times make impossible to pursue all possible profitable paths.</p>
+<p>In finance, when we look at an investable asset we are interested in two pieces of data: its mean past returns, its volatility and its expected returns.</p>
+<p>Why is the volatility important? People accumulate and invest their wealth in order to increase their future consumption, but there is uncertainity in when and how much they will need. An asset with high mean returns but also high volatility makes harder to forecast future wealth, so it brings additional uncertainity to the table.</p>
+<p>But it is also true that if we want to have a higher chance of maximing wealth growth, we do need high mean return. But mean returns aren’t expected returns.</p>
+<p>So fundamentally, optimizing investing is trying to find assets where the mean returns are high enough to justify the volatility of an asset.</p>
+<p>This is why it makes sense to build a portfolio of different uncorrelated assets, as the mean returns are summed while the volatility of the returns of the entire portfolio is reduced.</p>
+<div class="section" id="defining-a-timeseries">
+<h2>Defining a Timeseries<a class="headerlink" href="#defining-a-timeseries" title="Permalink to this headline">¶</a></h2>
+<p>The price over time of any tradable asset can be describe by a timeseries of prices <span class="math notranslate nohighlight">\(S_{n}\)</span>, which we assume discrete.  This timeserie is extracted by sampling the trade by trade history of the asset with a constant frequency. The most common frequency for analyzing returns and volatility is daily, but higher frequency data such as hourly prices or even minute by minute can be used.</p>
+</div>
+<div class="section" id="log-returns">
+<h2>Log Returns<a class="headerlink" href="#log-returns" title="Permalink to this headline">¶</a></h2>
+<p>The return between two consecutive periods in the timeseries is simply <span class="math notranslate nohighlight">\( r_i = \frac{S_i - S_{i-1}}{S_{i-1}}\)</span>. Often, we are interested in the cumulative or compound return of an asset between two timestep <span class="math notranslate nohighlight">\( T_1 \)</span> and <span class="math notranslate nohighlight">\(T_2 \)</span>, so we find that:
+$<span class="math notranslate nohighlight">\(
+r_{T_2} = \prod_{i=T_1}^{T_2} r_i
+\)</span><span class="math notranslate nohighlight">\(
+If either the periods or the returns between periods are small, we can find a more convenient way to define returns: the log returns.
+\)</span><span class="math notranslate nohighlight">\(
+x_i = \ln\left(\frac{S_i}{S_{i-1}}\right)
+\)</span><span class="math notranslate nohighlight">\(
+so that the compound returns between two timestep  \)</span> T_1 <span class="math notranslate nohighlight">\(,  \)</span>T_2 <span class="math notranslate nohighlight">\( of the timeseries is:
+\)</span><span class="math notranslate nohighlight">\(
+x_{T_2} = \sum_{i=T_1}^{T_2} x_i
+\)</span><span class="math notranslate nohighlight">\(
+This approximation is valid because:
+\)</span><span class="math notranslate nohighlight">\(
+x_i = \ln\left(\frac{S_i}{S_{i-1}}\right) = \ln \left( \frac{S_{i-1} + \delta}{S_{i-1}} \right) = \ln \left( 1 + \frac{\delta}{S_{i-1}}\right) \approx \left( \frac{\delta}{S_{i-1}}\right) = \left(\frac{S_{i-1} + \delta - S_{i-1} }{S_{i-1}}\right) = \left(\frac{S_{i} - S_{i-1} }{S_{i-1}}\right)
+\)</span><span class="math notranslate nohighlight">\(
+thanks to the log approximation \)</span>\ln(1+x) \approx x <span class="math notranslate nohighlight">\( for \)</span>x \ll 1$.</p>
+</div>
+<div class="section" id="the-normal-distribution-of-log-returns">
+<h2>The Normal Distribution of Log Returns<a class="headerlink" href="#the-normal-distribution-of-log-returns" title="Permalink to this headline">¶</a></h2>
+<p>If we plot the distribution of the log returns in a time period <span class="math notranslate nohighlight">\([T1, T2]\)</span>, with enough timesteps in between, we find that the distribution more or less resembles a normal distribution. Often, in finance, pricing models use as theoretical assumption that returns are log-normal, although it is well known that it isn’t true in practise: if we plot those distribution we will see that they often present high skew and high kurtosis, i.e they have fat tails of outliers. But the log normal assumption allows to make models either computable or solvable analitically, and we can then use other tools to reduce the impact of the log normal assumption.</p>
+</div>
+<div class="section" id="variance-and-volatility">
+<h2>Variance and Volatility<a class="headerlink" href="#variance-and-volatility" title="Permalink to this headline">¶</a></h2>
+<p>As we have now an empirical defined distribution of log returns, we can talk about the mean <span class="math notranslate nohighlight">\( E[x]\)</span>, which is the first moment of the distribution, and the variance <span class="math notranslate nohighlight">\(E[x^2]\)</span>,  its second moment.</p>
+<p>The volatility of returns <span class="math notranslate nohighlight">\( \sigma\)</span> is defined as the square root of the variance of the log return distribution. Since the distribution can be approximated to a normal one, the volatility is simple the standard deviation.
+$<span class="math notranslate nohighlight">\(
+\sigma^2 = \frac{1}{N} \sum_{i=1}^N \left(x_i - \bar x \right)^2
+\)</span><span class="math notranslate nohighlight">\(
+where \)</span> x_i = \ln\left(\frac{S_i}{S_{i-1}}\right) <span class="math notranslate nohighlight">\(  and \)</span>\bar x = \frac{1}{N} \sum_{i=1}^N x_i $ is the mean return in the sample.</p>
+<div class="section" id="square-root-of-time-rule">
+<h3>Square Root of Time Rule<a class="headerlink" href="#square-root-of-time-rule" title="Permalink to this headline">¶</a></h3>
+<p>For convience, both mean returns and volatility are reported annualized. How do we annualize them?</p>
+<p>Once again, we use the log approximation of returns so that we can say that the compound returns between two timestep is the sum of the returns in between. Assuming that those returns are all generated by indipendent identical processes, we can then approximate the mean <span class="math notranslate nohighlight">\(\mu\)</span> and variance <span class="math notranslate nohighlight">\(\sigma^2\)</span> as the sum of the <span class="math notranslate nohighlight">\(\mu_i\)</span> and <span class="math notranslate nohighlight">\(\sigma^2_i\)</span>, and finally approximate it as simply</p>
+<p>Mean: $<span class="math notranslate nohighlight">\(\mu = \mu_1 h\)</span>$</p>
+<p>Variance: <span class="math notranslate nohighlight">\(\sigma^2 = \sigma^2_1 h\)</span></p>
+<p>Volatility: <span class="math notranslate nohighlight">\(\sigma = \sigma_1 \sqrt h \)</span></p>
+<p>where <span class="math notranslate nohighlight">\(h\)</span> is the number of periods of our timeserie in a trading year.</p>
+<p>We cannot distinguish from the volatility generated from variation around the mean and the mean return or drift itself, and the mean return is noisy and depends from the sample. Since we are more interested in the former than the latter, we can set <span class="math notranslate nohighlight">\( \bar x = 0 \)</span>.</p>
+<p>Already from this definition, we can see that the volatility has a few assumption:</p>
+<ul class="simple">
+<li><p>What is the sampling period of the prices in the discrete timeseries with the respect to the actual price history?</p></li>
+<li><p>What type of pricing data are we considering? The high, low of a trading period? The open? The close?</p></li>
+<li><p>Do we have enough periods in our sample so that the distribution can be approximated to a normal one?</p></li>
+</ul>
+<p>The definition giving above is therefore not the real volatility of returns of the asset, which cannot be known, but a statistical estimator of the volatility. It is also an historical estimator, it can give us information of the past volatility but it can be dangerous to quickly estrapolate that estimate to future volatility.</p>
+<p>Ideally, we want our estimator to be unbiased and efficient. In statistics, bias is defined as the difference between an estimator expected value and the true value of the parameter being estimated.  We also want an estimator that is stable from sample to sample: the less prone to sampling error an estimator is, the more efficient it is.</p>
+<p>The estimator presented in the definition above is applied to timeseries of closing prices and therefore it is called the <strong>close-on-close estimator</strong> of volatility. It converges slowly in N to the true value of the volatility, so that we need a series of &gt;30 prices to have an estimate of volatility with a decent uncertainity.</p>
+<p>and we find that the variance in the sample is
+$<span class="math notranslate nohighlight">\(
+\begin{align*}
+s^2 = \frac{1}{N} \sum_{i=1}^N x_i^2
+\end{align*}
+\)</span>$</p>
+<p>To move from the sample variance to the population variance:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+\sigma^2 = \frac{N}{N - 1} s^2
+\end{align*}
+\]</div>
+<p>Sample to population? What does it means? Why?</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="bitcoin_realized_volatility.html" title="previous page">Studying Bitcoin’s Historical Volatility</a>
+    <a class='right-next' id="next-link" href="notes_on_modern_money.html" title="next page">The Nature of Money</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
