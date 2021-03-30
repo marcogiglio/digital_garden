@@ -1,0 +1,483 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes on Statistics and Finance &#8212; Digital Garden</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/tabs.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://marcogiglio.github.io/statistics.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="The Nature of Money" href="notes_on_modern_money.html" />
+    <link rel="prev" title="Notes on Quantitative Finance" href="finance.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://marcogiglio.github.io/statistics.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Notes on Statistics and Finance" />
+<meta property="og:description" content="Notes on Statistics and Finance  If we have a random variable X, then a sample of size n consist of n observations on X [CarolAlexander]. The characteristics of" />
+
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Digital Garden</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="finance.html">
+   Notes on Quantitative Finance
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Notes on Statistics and Finance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#sampling-distribution-and-hypothesis-testing">
+   Sampling Distribution and Hypothesis Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notes_on_modern_money.html">
+   The Nature of Money
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/statistics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/marcogiglio/digital_garden"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/marcogiglio/digital_garden/issues/new?title=Issue%20on%20page%20%2Fstatistics.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/marcogiglio/digital_garden/edit/master/docs/statistics.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/marcogiglio/digital_garden/master?urlpath=tree/docs/statistics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/marcogiglio/digital_garden/blob/master/docs/statistics.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Notes on Statistics and Finance
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#statistical-inference">
+     Statistical Inference
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#central-limit-theorem">
+       Central Limit Theorem
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#hypothesis-testing">
+       Hypothesis Testing
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sampling-distribution-and-hypothesis-testing">
+   Sampling Distribution and Hypothesis Testing
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="notes-on-statistics-and-finance">
+<h1>Notes on Statistics and Finance<a class="headerlink" href="#notes-on-statistics-and-finance" title="Permalink to this headline">¶</a></h1>
+<p>If we have a random variable <span class="math notranslate nohighlight">\(X\)</span>, then a sample of size <span class="math notranslate nohighlight">\(n\)</span> consist of <span class="math notranslate nohighlight">\(n\)</span> observations on <span class="math notranslate nohighlight">\(X\)</span> <span id="id1">[<a class="reference internal" href="finance.html#id4"><span>CarolAlexander</span></a>]</span>.
+The characteristics of this sample can be represented using a sample statistics such as:</p>
+<ul class="simple">
+<li><p><strong>Mean <span class="math notranslate nohighlight">\(\bar x \)</span></strong>: a measure of location of the sample. Alternatives measures of sample location are median and mode.</p></li>
+<li><p><strong>Variance <span class="math notranslate nohighlight">\(s\)</span></strong>: a measure of dispersion of the sample</p></li>
+<li><p><strong>Skewness</strong>: a measure of asymmetry in the sample. Assets returns are skewed due to trending nature of markets.</p></li>
+<li><p><strong>Kurtosis</strong>:  measures relative weight in the tails and the centre. Asset returns present high kurtosis because of the presence of market crashes and the fact that trading is discountinous, so that you can have jumps in prices.</p></li>
+</ul>
+<p>But we are not interested in the values of the sample statistics, but in the values of the equivalent population statistics (e.g <span class="math notranslate nohighlight">\(\mu\)</span>, <span class="math notranslate nohighlight">\(\sigma^2\)</span>) that can give us the characteristics of the random variable <span class="math notranslate nohighlight">\(X\)</span>.  Those values are clearly not knowable exactly, but we can approximate them using <em>statistical inference</em> from the sample values.</p>
+<div class="section" id="statistical-inference">
+<h2>Statistical Inference<a class="headerlink" href="#statistical-inference" title="Permalink to this headline">¶</a></h2>
+<p><strong>Inference Variance</strong></p>
+<p><span class="math notranslate nohighlight">\(\alpha\)</span> <strong>-quantile</strong> For any given random variable <span class="math notranslate nohighlight">\(X\)</span>, it can be useful to know the number <span class="math notranslate nohighlight">\(x_\alpha\)</span>  for which the probabililty of X being less than number <span class="math notranslate nohighlight">\(x_\alpha\)</span> is <span class="math notranslate nohighlight">\(\alpha\)</span>: e.g the 95% quantile of the standard norm distribution is the number 1.644.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.95</span>
+<span class="n">x_alpha</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x_alpha</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.6448536269514722
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Confidence Intervals</strong> We extend this concept to a range, so a <span class="math notranslate nohighlight">\(\alpha\)</span> confidence interval for a random variable <span class="math notranslate nohighlight">\(X\)</span> is a range in which X falls with probability <span class="math notranslate nohighlight">\(\alpha\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">norm</span><span class="o">.</span><span class="n">interval</span><span class="p">(</span><span class="mf">0.95</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-1.959963984540054, 1.959963984540054)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="central-limit-theorem">
+<h3>Central Limit Theorem<a class="headerlink" href="#central-limit-theorem" title="Permalink to this headline">¶</a></h3>
+<p>Suppose we drawn a sample of size <span class="math notranslate nohighlight">\(n\)</span>, from a population having random variable <span class="math notranslate nohighlight">\(X\)</span>, mean <span class="math notranslate nohighlight">\(\mu\)</span> and variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>. The CLT states that as <span class="math notranslate nohighlight">\(n\to\infty\)</span> then</p>
+<div class="math notranslate nohighlight">
+\[\frac{\bar x - \mu}{\frac{\sigma}{\sqrt n}} \approx N(0,1) \]</div>
+<p>Surprisingly, this doesn’t suppose that the random variable <span class="math notranslate nohighlight">\(X\)</span> is normally distributed, but only that it has a defined mean <span class="math notranslate nohighlight">\(\mu\)</span> and a variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p>
+<p><strong>Applications of CLT</strong></p>
+<p>We can use CLT to test an hypothesis on the mean of the population given the sample mean and some confidence interval.</p>
+<p>Since we don’t kow the <span class="math notranslate nohighlight">\(\sigma\)</span> of the population, there is an additional theorical result we can use for our purpose, if we suppose that the random variable X approximate a normal distribution <span class="math notranslate nohighlight">\(N(\mu, \sigma^2)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\bar x - \mu}{\frac{s}{\sqrt n}} \approx t_{n-1} \]</div>
+<p>An example taken from <span id="id2">[<a class="reference internal" href="finance.html#id4"><span>CarolAlexander</span></a>]</span>, using scipy</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">t</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">student_dist</span> <span class="o">=</span> <span class="n">t</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">interval</span> <span class="o">=</span> <span class="n">student_dist</span><span class="o">.</span><span class="n">interval</span><span class="p">(</span><span class="mf">0.95</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="o">-</span> <span class="mi">5</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">interval</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.3006170102856744 8.699382989714326
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="hypothesis-testing">
+<h3>Hypothesis Testing<a class="headerlink" href="#hypothesis-testing" title="Permalink to this headline">¶</a></h3>
+<p>Rules</p>
+<ol class="simple">
+<li><p>State null and alternative hypotheses</p></li>
+<li><p>Chose a test statistics and state its distribution</p></li>
+<li><p>Find the value of the test statistics given your data, under the null hypothesis</p></li>
+<li><p>Choose a significance level</p></li>
+<li><p>Find the critical values of the test statistics for the critical level</p></li>
+<li><p>Compare your value with the critical value: if the value is above the critical value, reject the null hypothesis</p></li>
+</ol>
+<p>You a sample of size 25, you find the mean <span class="math notranslate nohighlight">\(\bar x = -2\)</span> and the variance <span class="math notranslate nohighlight">\(s = 5\)</span>. You want to test two hypothesis: the null hypothesis <span class="math notranslate nohighlight">\(\mu = 0\)</span> and the hypothesis that <span class="math notranslate nohighlight">\(\mu &lt; 0\)</span>.</p>
+<p>What is the value of your test statistics under the null hypothesis?</p>
+<p><span class="math notranslate nohighlight">\(t_0 = \frac{-2 - 0}{5/5} = -2\)</span></p>
+<p>Let’s take 5% significance level. What is the critical value for the test statistics for 5% significance level?
+P(X &lt; t*) = 0.05</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.7108820799094282
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since <span class="math notranslate nohighlight">\(t_0 &lt; t^*\)</span>, then we reject the null hypothesis is favor of the alternative hypothesis.</p>
+</div>
+</div>
+</div>
+<div class="section" id="sampling-distribution-and-hypothesis-testing">
+<h1>Sampling Distribution and Hypothesis Testing<a class="headerlink" href="#sampling-distribution-and-hypothesis-testing" title="Permalink to this headline">¶</a></h1>
+<p>The sampling distribution are valid for hypothesis thesis and confidence intervals only under the assumption of a normal population. We can use the CLT only if we are testing for the mean of a population in the case we have a very large sample.</p>
+<p>Normal or Student-t distribution are used for inferences from sample means to population means, while Chi-squared are used for inference on variance.</p>
+<p><strong>Type I errors</strong>: We reject the null hypothesis even if it is true. The probability of doing a Type I error is equal to the significance level <span class="math notranslate nohighlight">\(\alpha\)</span>.
+<strong>Type II errors</strong>: We fail to reject the null hypothesis even if its false.</p>
+<p>The statistical power of a study is the probability of not committing a Type II error. We can increase the power by increasing the confidence level (but we increase the Type I error by doing so) or by increasing the sample size (since variance of sample distribution depends from the sample size).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.0015</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.03872983346207417
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">norm</span><span class="o">.</span><span class="n">interval</span><span class="p">(</span><span class="mf">0.95</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-1.959963984540054, 1.959963984540054)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "marcogiglio/digital_garden",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="finance.html" title="previous page">Notes on Quantitative Finance</a>
+    <a class='right-next' id="next-link" href="notes_on_modern_money.html" title="next page">The Nature of Money</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Marco Giglio<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

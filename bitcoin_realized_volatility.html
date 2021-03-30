@@ -1,11 +1,11 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Studying Bitcoin’s Historical Volatility &#8212; My Jupyter Book</title>
+    <title>Studying Bitcoin’s Historical Volatility &#8212; Digital Garden</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -31,6 +31,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -43,24 +44,35 @@
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/tabs.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://marcogiglio.github.io/bitcoin_realized_volatility.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Learning Essential Finance" href="finance.html" />
+    <link rel="next" title="Notes on Quantitative Finance" href="finance.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
 
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://marcogiglio.github.io/bitcoin_realized_volatility.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Studying Bitcoin’s Historical Volatility" />
+<meta property="og:description" content="Studying Bitcoin’s Historical Volatility  Bitcoin’s volatility is a source of continues debates because a high volatility impairs its use as medium of exchange " />
+
+
+<meta name="twitter:card" content="summary" />
 
 
   </head>
@@ -76,7 +88,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">My Jupyter Book</h1>
+  <h1 class="site-logo" id="site-title">Digital Garden</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -85,16 +97,19 @@
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <ul class="nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="reference internal" href="#">
-   Studying Bitcoin’s Historical Volatility
-  </a>
- </li>
-</ul>
-<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="finance.html">
-   Learning Essential Finance
+   Notes on Quantitative Finance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="statistics.html">
+   Notes on Statistics and Finance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="statistics.html#sampling-distribution-and-hypothesis-testing">
+   Sampling Distribution and Hypothesis Testing
   </a>
  </li>
  <li class="toctree-l1">
@@ -153,6 +168,24 @@
 
             <!-- Source interaction buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/marcogiglio/digital_garden"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/marcogiglio/digital_garden/issues/new?title=Issue%20on%20page%20%2Fbitcoin_realized_volatility.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/marcogiglio/digital_garden/edit/master/docs/bitcoin_realized_volatility.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
 
             <!-- Full screen (wrap in <a> to have style consistency -->
             <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
@@ -167,7 +200,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/bitcoin_realized_volatility.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/marcogiglio/digital_garden/master?urlpath=tree/docs/bitcoin_realized_volatility.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -175,6 +208,14 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/marcogiglio/digital_garden/blob/master/docs/bitcoin_realized_volatility.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -194,20 +235,20 @@
   <a class="reference internal nav-link" href="#">
    Studying Bitcoin’s Historical Volatility
   </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#returns">
-   Returns
-  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-standard-measure-of-volatility-of-returns">
-     The Standard Measure of Volatility of Returns
+    <a class="reference internal nav-link" href="#volatility">
+     Volatility
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#on-bitcoin-s-volatility">
-     On Bitcoin’s Volatility
+    <a class="reference internal nav-link" href="#a-word-on-bitcoin-data">
+     A Word on Bitcoin Data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysis">
+     Analysis
     </a>
    </li>
   </ul>
@@ -230,101 +271,45 @@
               <div>
                 
   <div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/marco/.pyenv/versions/3.8.2/lib/python3.8/site-packages/pandas/compat/__init__.py:120: UserWarning: Could not import the lzma module. Your installed Python is incomplete. Attempting to use lzma compression will result in a RuntimeError.
-  warnings.warn(msg)
-</pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="studying-bitcoin-s-historical-volatility">
-<h1>Studying Bitcoin’s Historical Volatility<a class="headerlink" href="#studying-bitcoin-s-historical-volatility" title="Permalink to this headline">¶</a></h1>
-<p>In finance, when we look at an investable asset we are interested in two pieces of data: its mean returns and the variance of those returns. Why is the variance of returns important? People accumulate and invest their wealth in order to increase their future consumption, but there is uncertainity in when and how much they will need. An asset with high mean returns but also high variance make harder to forecast future wealth growth, so it brings more uncertainity to the table. But it is also true that if we want to have a higher chance of maximing wealth growth, we do need high mean returns. So fundamentally, optimizing investing is trying to find assets where the mean returns are high enough to justify their variance. This is why it makes sense to build a portfolio of different uncorrelated assets.</p>
-</div>
-<div class="section" id="returns">
-<h1>Returns<a class="headerlink" href="#returns" title="Permalink to this headline">¶</a></h1>
-<p>Any tradable asset is a timeseries of prices <span class="math notranslate nohighlight">\(S_{n}\)</span>. As the return is the com</p>
-<p>The return between two period in the timeseries is simply <span class="math notranslate nohighlight">\( r_i = \frac{S_i - S_{i-1}{S_{i-1}}\)</span>, but since returns compound it is easier to use the logaritm <span class="math notranslate nohighlight">\( r_i = \ln\left(\frac{S_i}{S_{i-1}}\right) \)</span>.</p>
-<p>For any tradable asset, volatility is commontly defined as the standard deviation of the annualized returns or the square root of the variance of the annualized returns.</p>
-<p>But measuring volatility isn’t trivial, as it relies on discrete samples of data. It is impossible to observe instantaneous volatility: we need the passage of time for it manifest. Therefore, the best we can do is to produce an estimate of historical volatility, one that we want unbiased  and efficient. 
-In statistics, bias is defined as the difference between an estimator expected value and the true value of the parameter being estimated. 
+<div class="section" id="studying-bitcoins-historical-volatility">
+<h1>Studying Bitcoin’s Historical Volatility<a class="headerlink" href="#studying-bitcoins-historical-volatility" title="Permalink to this headline">¶</a></h1>
+<p>Bitcoin’s volatility is a source of continues debates because a high volatility impairs its use as medium of exchange and unit of account in economic exchanges: it therefore prevents Bitcoin to be adopted as money.</p>
+<p>During Bitcoin’s early days, Bitcoin’s supporters advanced the hypothesis that its future volatility would be inversely correlated to the size of its market capitalization, i.e the outstanding value of all Bitcoins.</p>
+<p>In early 2021, Bitcoin’s market capitalization reached 1 trillion dollars, putting it on pars with major fiat currencies such as the Swiss franc and a considerable fraction of the investable gold market. But is Bitcoin’s volatility lower today than when its marketcap was hundreds of time smaller? This is the focus on this investigation.</p>
+<div class="section" id="volatility">
+<h2>Volatility<a class="headerlink" href="#volatility" title="Permalink to this headline">¶</a></h2>
+<p>A tradable asset can be described by a discrete time series of prices <span class="math notranslate nohighlight">\(S_{n}\)</span>. This time series is a sample, taken with a constant sampling frequency that can be daily, hourly or even at the minute level, of the entire tick-by-tick, trade-by-trade price history of the asset, that for we can consider continous. That price history is the population from with the extract our sample: the aim of our stastitical analysis is inferring properties of the population by analyzing data from the sample, and we will see how.</p>
+<p>Volatility is generally defined as a measure of dispersion of the price returns in the time series. Since we are analyzing data fromn a sample taken from the population, we can only estimate volatility using statistical estimators. Ideally, we want a statistical estimator that it is unbiased and efficient.
+In statistics, bias is defined as the difference between an estimator expected value and the true value of the parameter being estimated.
 We also want an estimator that is stable from sample to sample: the less prone to sampling error an estimator is, the more efficient it is.</p>
-<div class="section" id="the-standard-measure-of-volatility-of-returns">
-<h2>The Standard Measure of Volatility of Returns<a class="headerlink" href="#the-standard-measure-of-volatility-of-returns" title="Permalink to this headline">¶</a></h2>
-<p>Let’s assume that we sample a time serie of N consecutive prices <span class="math notranslate nohighlight">\(S_{n}\)</span> of our security. Returns are</p>
-<p>Volatility is commonly defined as the squared root of the variance of the logarithmic returns in the sample:
-$<span class="math notranslate nohighlight">\(
-\begin{align*}
+<p>The most common statistical estimator used for volatility is the square rooot of the variance of the price returns in the sample, which also it is the definition for the standard deviation of a normal distribution. Volatility is usually reported as an annualized metrics, so that the resulting variance has to be multiplied by the number of trading periods in one year.</p>
+<p>Let’s assume that we sample a time series of N consecutive prices <span class="math notranslate nohighlight">\(S_{n}\)</span> of our security. Then the sample variance is defined as
+$$</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
 s^2 = \frac{1}{N} \sum_{i=1}^N \left(x_i - \bar x \right)^2
-\end{align*}
-\)</span>$</p>
-<p>where <span class="math notranslate nohighlight">\( x_i = \ln\left(\frac{S_i}{S_{i-1}}\right) \)</span>  and <span class="math notranslate nohighlight">\(\bar x = \frac{1}{N} \sum_{i=1}^N x_i \)</span> is the mean return in the sample.  We cannot distinguish from the volatility generated from variation around the mean and the mean return or drift itself, and the mean return is noisy and depends from the sample. Since we are more interested in the former than the latter, we can set <span class="math notranslate nohighlight">\( \bar x = 0 \)</span>, and we find that the variance in the sample is
-$<span class="math notranslate nohighlight">\(
-\begin{align*}
-s^2 = \frac{1}{N} \sum_{i=1}^N x_i^2
-\end{align*}
-\)</span>$</p>
-<p>To move from the sample variance to the population variance:</p>
+\end{align*}\]</div>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}where $ x_i = \ln\left(\frac{S_i}{S_{i-1}}\right) $  and $\bar x = \frac{1}{N} \sum_{i=1}^N x_i $ is the mean log returns in the sample, also called drift. As the drift, which is a log return, may greatly depend on the sample considered and it is should be small in the period considered, by setting $\bar x = 0$ we reduce a source of potential noise in our volatility estimate. \\Since we are actually interested in the population variance, we must know how to infer it from the sample variance. The sample variance defined above is a well known *biased estimator* of the population variance $\sigma^2$, so that it needs to be multiplied by a factor $n/(n-1)$ to remove the bias {doc}`statistics.ipynb` (this is called Bernoulli's correction):
+\end{aligned}\end{align} \]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\sigma^2 = \frac{N}{N - 1} s^2
+\end{align*}\]</div>
 <div class="math notranslate nohighlight">
 \[
-\begin{align*}
-\sigma^2 = \frac{N}{N - 1} s^2
-\end{align*}
+We can already see that the sample size N is quite important, but it becomes even more important if we consider the variance of the sample variance itself:
 \]</div>
-<p>Volatility is the square root of this quantity and it is generally presented as an annualized metric. Therefore, we multiply this number by the square root of number of periods needed to reach one trading year.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+var(s) \approx \frac{\sigma^2}{2N} 
+\end{align*}\]</div>
+<p>$<span class="math notranslate nohighlight">\(
+In fact, for small \)</span>N<span class="math notranslate nohighlight">\( such as the commonly used \)</span>N=20<span class="math notranslate nohighlight">\( or \)</span>N=30$, the uncertainity on the sample variance can be quite high. Much better to use N of 60 and above.</p>
+<p>So why shouldn’t we use always a high N in our volatility estimate? Firstly, a high N could make jumps or trading discountinity persist in our estimate, leading to an overestimate. Secondly, since often we use daily closes as pricing data, looking up to 60 days in the past may provide us with information on volatility which are not anymore current.</p>
+<p><strong>The Square Root of Time rule</strong></p>
 <div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">c21e4d475382</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">csv_path</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;bitcoin_realized_volatility&#39;</span> <span class="o">/</span> <span class="s1">&#39;data&#39;</span> <span class="o">/</span> <span class="s1">&#39;bitstamp_hourly.csv&#39;</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csv_path</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">dt</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-
-<span class="nn">~/.pyenv/versions/3.8.2/lib/python3.8/site-packages/pandas/io/parsers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision)</span>
-<span class="g g-Whitespace">    </span><span class="mi">684</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">685</span> 
-<span class="ne">--&gt; </span><span class="mi">686</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">687</span> 
-<span class="g g-Whitespace">    </span><span class="mi">688</span> 
-
-<span class="nn">~/.pyenv/versions/3.8.2/lib/python3.8/site-packages/pandas/io/parsers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">450</span> 
-<span class="g g-Whitespace">    </span><span class="mi">451</span>     <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">452</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">fp_or_buf</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">453</span> 
-<span class="g g-Whitespace">    </span><span class="mi">454</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
-
-<span class="nn">~/.pyenv/versions/3.8.2/lib/python3.8/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">934</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">935</span> 
-<span class="ne">--&gt; </span><span class="mi">936</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">937</span> 
-<span class="g g-Whitespace">    </span><span class="mi">938</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">~/.pyenv/versions/3.8.2/lib/python3.8/site-packages/pandas/io/parsers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1166</span>     <span class="k">def</span> <span class="nf">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1167</span>         <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1168</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="n">CParserWrapper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1169</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1170</span>             <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;python&quot;</span><span class="p">:</span>
-
-<span class="nn">~/.pyenv/versions/3.8.2/lib/python3.8/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1996</span>         <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;usecols&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">usecols</span>
-<span class="g g-Whitespace">   </span><span class="mi">1997</span> 
-<span class="ne">-&gt; </span><span class="mi">1998</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span> <span class="o">=</span> <span class="n">parsers</span><span class="o">.</span><span class="n">TextReader</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1999</span>         <span class="bp">self</span><span class="o">.</span><span class="n">unnamed_cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span><span class="o">.</span><span class="n">unnamed_cols</span>
-<span class="g g-Whitespace">   </span><span class="mi">2000</span> 
-
-<span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader.__cinit__</span><span class="nt">()</span>
-
-<span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader._setup_parser_source</span><span class="nt">()</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/Users/marco/digital_garden/bitcoin_realized_volatility/data/bitstamp_hourly.csv&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -350,10 +335,13 @@ s^2 = \frac{1}{N} \sum_{i=1}^N x_i^2
 </div>
 </div>
 </div>
-<div class="section" id="on-bitcoin-s-volatility">
-<h2>On Bitcoin’s Volatility<a class="headerlink" href="#on-bitcoin-s-volatility" title="Permalink to this headline">¶</a></h2>
-<p>Bitcoin is well know to be a highly volatile asset. This high volatility prevents its use as a medium of exchange. It also prevents its widespread use as a store of value as its volatility with respect to the local price level prevents forecasting of potential future consumption by both companies and individuals. Recently, Bitcoin has a hit a large milestone, reaching a one trillion $ of market capitalization. It took more than a decade, and plenty of volatility to reach it, but has Bitcoin became less volatile in the process? Looking at the past, what can we say about its future volatility?</p>
-<p>Bitcoin is a 24-7 traded assets and its pricing data abounds. For this reason, we shouldn’t restric ourselves to analize the volatility of daily closes, but we can use more granular data, such as hourly closes or even minute-by-minute closes. In the following analysis, I have used the hourly closes from Bitstamp, which is one of the oldest Bitcoin exchanges. In the following chart, I plotted Bitcoin’s close on close annualized hourly volatility with a period of 60 hours.</p>
+<div class="section" id="a-word-on-bitcoin-data">
+<h2>A Word on Bitcoin Data<a class="headerlink" href="#a-word-on-bitcoin-data" title="Permalink to this headline">¶</a></h2>
+<p>Although Bitcoin is traded 24/7 globally, it does often presents pricing discountinity due to jumps of its volatility. If we want to be accurate in our estimate of volatility and at the same time avoid the impact of the jumps on the data, we can use a high N but use more granular data, such as hourly data, instead of daily closes. We must take that in consideration when we annualize the volatility by multiplying with the correct factor.</p>
+</div>
+<div class="section" id="analysis">
+<h2>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h2>
+<p>In the first chart, I plotted Bitcoin’s close on close annualized hourly volatility with a period of 60 hours.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
@@ -372,7 +360,7 @@ s^2 = \frac{1}{N} \sum_{i=1}^N x_i^2
 <li><p>Bitcoin’s tipical volatility remains substantial and it shows an upward trending pattern during bull markets and downward during bear markets. From this high view, it doesn’t not appear to have diminished significantly, if not at all.</p></li>
 <li><p>The March 2020 crash was an outlier comparable to 2014’s events</p></li>
 </ul>
-<p>How can we give extract more information from the data? Since we have pricing data with a decent resolution, we can build empirical distributions at different times and see how they have changed. Or even better, we can see how the properties of such distributions change over time, using a 12-months rolling window:</p>
+<p>How can we extract more information from the data? Since we have pricing data with a decent resolution, we can build empirical distributions of the volatilites at different times in our sampling history and see how they have changed. Or even better, we can see how the sample mean and variance of such distributions change over time, using a 12-months rolling window:</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the mean and the std of the data over a rolling 3, 6, 12, 24-months windows </span>
@@ -452,7 +440,7 @@ s^2 = \frac{1}{N} \sum_{i=1}^N x_i^2
 <h1>Future Research Direction<a class="headerlink" href="#future-research-direction" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><strong>Alternative estimators</strong>: the close-on-close volatility estimator cannot handle jumps in returns well, as they increase volatility for the entire window/period before dropping out. Alternatives model exists, such as the Exponentially Weighted Moving Average (EWMA) and the family of GARCH models.</p></li>
-<li><p><strong>High Frequency Data</strong>: the easiness in which today we can collect and process high-frequency pricing data has clearly have an impact on volatility measures: today, it is possible to collect tick-by-tick/sub-second pricing data. But on timescales so short, market microstructure, such as the bid-ask spread and exchange liquidity will have a large effect on the volatility estimate. It is also possible that high frequency data would show that difference currency pairs present different volatilities.</p></li>
+<li><p><strong>High Frequency Data</strong>: the easiness in which today we can collect and process high-frequency pricing data has clearly have an impact on volatility measures: today, it is possible to collect tick-by-tick/sub-second pricing data. But on timescales so short, market microstructure, such as the bid-ask spread and exchange liquidity will have a large effect on the volatility estimate. It is also possible that high frequency data would show that difference currency pairs presents different volatilities.</p></li>
 <li><p><strong>Volatility of Volatility</strong>: How does volatility itself change over time and how it has been changing in the last decade?</p></li>
 </ul>
 <div class="toctree-wrapper compound">
@@ -463,7 +451,7 @@ s^2 = \frac{1}{N} \sum_{i=1}^N x_i^2
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "marcogiglio/digital_garden",
             ref: "master",
         },
         codeMirrorConfig: {
@@ -484,7 +472,7 @@ s^2 = \frac{1}{N} \sum_{i=1}^N x_i^2
         
         <div class='prev-next-bottom'>
             
-    <a class='right-next' id="next-link" href="finance.html" title="next page">Learning Essential Finance</a>
+    <a class='right-next' id="next-link" href="finance.html" title="next page">Notes on Quantitative Finance</a>
 
         </div>
         
@@ -494,7 +482,7 @@ s^2 = \frac{1}{N} \sum_{i=1}^N x_i^2
     <div class="container">
       <p>
         
-          By The Jupyter Book community<br/>
+          By Marco Giglio<br/>
         
             &copy; Copyright 2020.<br/>
       </p>
