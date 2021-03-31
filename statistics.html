@@ -69,7 +69,7 @@
 <meta property="og:url"         content="https://marcogiglio.github.io/statistics.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Notes on Statistics and Finance" />
-<meta property="og:description" content="Notes on Statistics and Finance  If we have a random variable X, then a sample of size n consist of n observations on X [CarolAlexander]. The characteristics of" />
+<meta property="og:description" content="Notes on Statistics and Finance  If we have a random variable X, then a sample of size n consist of n observations on X [Ale]. The characteristics of this sampl" />
 
 
 <meta name="twitter:card" content="summary" />
@@ -107,19 +107,9 @@
    Studying Bitcoin’s Historical Volatility
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="bitcoin_realized_volatility.html#future-research-direction">
-   Future Research Direction
-  </a>
- </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Notes on Statistics and Finance
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#sampling-distribution-and-hypothesis-testing">
-   Sampling Distribution and Hypothesis Testing
   </a>
  </li>
 </ul>
@@ -236,31 +226,24 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Notes on Statistics and Finance
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#statistical-inference">
+   Statistical Inference
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#statistical-inference">
-     Statistical Inference
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#central-limit-theorem">
+     Central Limit Theorem
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#central-limit-theorem">
-       Central Limit Theorem
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#hypothesis-testing">
-       Hypothesis Testing
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hypothesis-testing">
+     Hypothesis Testing
+    </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sampling-distribution-and-hypothesis-testing">
    Sampling Distribution and Hypothesis Testing
   </a>
@@ -279,7 +262,7 @@
                 
   <div class="section" id="notes-on-statistics-and-finance">
 <h1>Notes on Statistics and Finance<a class="headerlink" href="#notes-on-statistics-and-finance" title="Permalink to this headline">¶</a></h1>
-<p>If we have a random variable <span class="math notranslate nohighlight">\(X\)</span>, then a sample of size <span class="math notranslate nohighlight">\(n\)</span> consist of <span class="math notranslate nohighlight">\(n\)</span> observations on <span class="math notranslate nohighlight">\(X\)</span> <span id="id1">[<a class="reference internal" href="finance.html#id4"><span>CarolAlexander</span></a>]</span>.
+<p>If we have a random variable <span class="math notranslate nohighlight">\(X\)</span>, then a sample of size <span class="math notranslate nohighlight">\(n\)</span> consist of <span class="math notranslate nohighlight">\(n\)</span> observations on <span class="math notranslate nohighlight">\(X\)</span> <span id="id1">[<a class="reference internal" href="finance.html#id4"><span>Ale</span></a>]</span>.
 The characteristics of this sample can be represented using a sample statistics such as:</p>
 <ul class="simple">
 <li><p><strong>Mean <span class="math notranslate nohighlight">\(\bar x \)</span></strong>: a measure of location of the sample. Alternatives measures of sample location are median and mode.</p></li>
@@ -331,7 +314,7 @@ The characteristics of this sample can be represented using a sample statistics 
 <p>Since we don’t kow the <span class="math notranslate nohighlight">\(\sigma\)</span> of the population, there is an additional theorical result we can use for our purpose, if we suppose that the random variable X approximate a normal distribution <span class="math notranslate nohighlight">\(N(\mu, \sigma^2)\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\frac{\bar x - \mu}{\frac{s}{\sqrt n}} \approx t_{n-1} \]</div>
-<p>An example taken from <span id="id2">[<a class="reference internal" href="finance.html#id4"><span>CarolAlexander</span></a>]</span>, using scipy</p>
+<p>An example taken from <span id="id2">[<a class="reference internal" href="finance.html#id4"><span>Ale</span></a>]</span>, using scipy</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">t</span>
@@ -382,9 +365,8 @@ P(X &lt; t*) = 0.05</p>
 <p>Since <span class="math notranslate nohighlight">\(t_0 &lt; t^*\)</span>, then we reject the null hypothesis is favor of the alternative hypothesis.</p>
 </div>
 </div>
-</div>
 <div class="section" id="sampling-distribution-and-hypothesis-testing">
-<h1>Sampling Distribution and Hypothesis Testing<a class="headerlink" href="#sampling-distribution-and-hypothesis-testing" title="Permalink to this headline">¶</a></h1>
+<h2>Sampling Distribution and Hypothesis Testing<a class="headerlink" href="#sampling-distribution-and-hypothesis-testing" title="Permalink to this headline">¶</a></h2>
 <p>The sampling distribution are valid for hypothesis thesis and confidence intervals only under the assumption of a normal population. We can use the CLT only if we are testing for the mean of a population in the case we have a very large sample.</p>
 <p>Normal or Student-t distribution are used for inferences from sample means to population means, while Chi-squared are used for inference on variance.</p>
 <p><strong>Type I errors</strong>: We reject the null hypothesis even if it is true. The probability of doing a Type I error is equal to the significance level <span class="math notranslate nohighlight">\(\alpha\)</span>.
@@ -425,6 +407,7 @@ P(X &lt; t*) = 0.05</p>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-1.959963984540054, 1.959963984540054)
 </pre></div>
+</div>
 </div>
 </div>
 </div>

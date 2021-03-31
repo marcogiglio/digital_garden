@@ -109,18 +109,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="bitcoin_realized_volatility.html#future-research-direction">
-   Future Research Direction
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="statistics.html">
    Notes on Statistics and Finance
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="statistics.html#sampling-distribution-and-hypothesis-testing">
-   Sampling Distribution and Hypothesis Testing
   </a>
  </li>
 </ul>
@@ -300,8 +290,8 @@ thanks to the log approximation \)</span>\ln(1+x) \approx x <span class="math no
 <h3>Variance and Volatility<a class="headerlink" href="#variance-and-volatility" title="Permalink to this headline">¶</a></h3>
 <p>As we have now an empirical defined distribution of log returns, we can talk about the mean <span class="math notranslate nohighlight">\( E[x]\)</span>, which is the first moment of the distribution, and the variance <span class="math notranslate nohighlight">\(E[x^2]\)</span>,  its second moment.</p>
 <p>The volatility of returns <span class="math notranslate nohighlight">\( \sigma \)</span> is defined as the square root of the variance of the log return distribution. Since the distribution can be approximated to a normal one, the volatility is simple the standard deviation.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5ab5e9e6-6288-4949-953f-2bbb15f61eb6">
-<span class="eqno">(2)<a class="headerlink" href="#equation-5ab5e9e6-6288-4949-953f-2bbb15f61eb6" title="Permalink to this equation">¶</a></span>\[\begin{gather}
+<div class="amsmath math notranslate nohighlight" id="equation-5eb967a6-ae66-44c3-9a62-d5695a7aca96">
+<span class="eqno">(2)<a class="headerlink" href="#equation-5eb967a6-ae66-44c3-9a62-d5695a7aca96" title="Permalink to this equation">¶</a></span>\[\begin{gather}
 \sigma^2 = \frac{1}{N} \sum_{i=1}^N \left(x_i - \bar x \right)^2
 x_i = \ln\left(\frac{S_i}{S_{i-1}}\right) 
 \bar x = \frac{1}{N} \sum_{i=1}^N x_i $ 
@@ -337,11 +327,11 @@ s^2 = \frac{1}{N} \sum_{i=1}^N x_i^2
 \end{align*}\]</div>
 <p>Sample to population? What does it means? Why?</p>
 <p id="id2"><dl class="citation">
+<dt class="label" id="id4"><span class="brackets">Ale</span></dt>
+<dd><p>Carol Alexander. Essential quantative finance, topic 3: statistics, inference, stochastic processes. URL: <a class="reference external" href="https://www.coalexander.com/learning-resources">https://www.coalexander.com/learning-resources</a>.</p>
+</dd>
 <dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">Sin10</a></span></dt>
 <dd><p>Euan Sinclair. <em>Option Trading: Pricing and Volatility Strategies and Techniques</em>. Willey-Trading, 2010.</p>
-</dd>
-<dt class="label" id="id4"><span class="brackets">CarolAlexander</span></dt>
-<dd><p>Carol Alexander. Essential quantative finance, topic 3: statistics, inference, stochastic processes. URL: <a class="reference external" href="https://www.coalexander.com/learning-resources">https://www.coalexander.com/learning-resources</a>.</p>
 </dd>
 </dl>
 </p>
