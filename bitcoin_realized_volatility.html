@@ -59,7 +59,8 @@
     <link rel="canonical" href="https://marcogiglio.github.io/bitcoin_realized_volatility.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Notes on Quantitative Finance" href="finance.html" />
+    <link rel="next" title="Notes on Statistics and Finance" href="statistics.html" />
+    <link rel="prev" title="Notes on Quantitative Finance" href="finance.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -69,7 +70,7 @@
 <meta property="og:url"         content="https://marcogiglio.github.io/bitcoin_realized_volatility.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Studying Bitcoin’s Historical Volatility" />
-<meta property="og:description" content="Studying Bitcoin’s Historical Volatility  Bitcoin’s volatility is a source of continues debates because a high volatility impairs its use as medium of exchange " />
+<meta property="og:description" content="Studying Bitcoin’s Historical Volatility  Introduction  Bitcoin’s volatility is a source of continues debates because a high volatility impairs its use as mediu" />
 
 
 <meta name="twitter:card" content="summary" />
@@ -96,10 +97,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+    <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="finance.html">
    Notes on Quantitative Finance
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Studying Bitcoin’s Historical Volatility
   </a>
  </li>
  <li class="toctree-l1">
@@ -110,11 +116,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="statistics.html#sampling-distribution-and-hypothesis-testing">
    Sampling Distribution and Hypothesis Testing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="notes_on_modern_money.html">
-   The Nature of Money
   </a>
  </li>
 </ul>
@@ -231,36 +232,34 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Studying Bitcoin’s Historical Volatility
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#defining-volatility">
+   Defining Volatility
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis">
+   Analysis
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#defining-volatility">
-     Defining Volatility
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comparing-the-histograms-of-volatilities-at-different-times">
+     Comparing the Histograms of Volatilities at Different Times
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analysis">
-     Analysis
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mean-and-median-over-time-using-rolling-windows">
+     Mean and Median Over Time using Rolling Windows
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#comparing-the-histograms-of-volatilities-at-different-times">
-       Comparing the Histograms of Volatilities at Different Times
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#mean-and-median-over-time-using-rolling-windows">
-       Mean and Median Over Time using Rolling Windows
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#future-research-direction">
    Future Research Direction
   </a>
@@ -287,9 +286,12 @@
 </div>
 <div class="section" id="studying-bitcoins-historical-volatility">
 <h1>Studying Bitcoin’s Historical Volatility<a class="headerlink" href="#studying-bitcoins-historical-volatility" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>Bitcoin’s volatility is a source of continues debates because a high volatility impairs its use as medium of exchange and unit of account in economic exchanges: it therefore prevents Bitcoin to be adopted as money.</p>
 <p>During Bitcoin’s early days, Bitcoin’s supporters advanced the hypothesis that its future volatility would be inversely correlated to the size of its market capitalization, i.e the outstanding value of all Bitcoins.</p>
 <p>In early 2021, Bitcoin’s market capitalization reached 1 trillion dollars, putting it on pars with major fiat currencies such as the Swiss franc and a considerable fraction of the investable gold market. But is Bitcoin’s volatility lower today than when its marketcap was hundreds of time smaller? This is the focus on this investigation.</p>
+</div>
 <div class="section" id="defining-volatility">
 <h2>Defining Volatility<a class="headerlink" href="#defining-volatility" title="Permalink to this headline">¶</a></h2>
 <p>A tradable asset can be described by a discrete time series of prices <span class="math notranslate nohighlight">\(S_{n}\)</span>. This time series is a sample, taken with a constant sampling frequency that can be daily, hourly or even at the minute level, of the entire tick-by-tick, trade-by-trade price history of the asset, that for we can consider continous. That price history is the population from with the extract our sample: the aim of our stastitical analysis is inferring properties of the population by analyzing data from the sample, and we will see how.</p>
@@ -302,8 +304,8 @@ We also want an estimator that is stable from sample to sample: the less prone t
 \[\begin{align*}
 s^2 = \frac{1}{N} \sum_{i=1}^N \left(x_i - \bar x \right)^2
 \end{align*}\]</div>
-<p>where <span class="math notranslate nohighlight">\( x_i = \ln\left(\frac{S_i}{S_{i-1}}\right) \)</span>  and <span class="math notranslate nohighlight">\(\bar x = \frac{1}{N} \sum_{i=1}^N x_i \)</span> is the mean log returns in the sample, also called drift. As the drift, which is a log return, may greatly depend on the sample considered and it is should be small in the period considered, by setting <span class="math notranslate nohighlight">\(\bar x = 0\)</span> we reduce a source of potential noise in our volatility estimate.</p>
-<p><strong>From Sample to Population Estimate</strong> Since we are actually interested in the population variance, we must know how to infer it from the sample variance. The sample variance defined above is a well known <em>biased estimator</em> of the population variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>, so that it needs to be multiplied by a factor <span class="math notranslate nohighlight">\(n/(n-1)\)</span> to remove the bias <span class="xref std std-doc">statistics.ipynb</span> (this is called Bernoulli’s correction):</p>
+<p>where <span class="math notranslate nohighlight">\( x_i = \ln\left(\frac{S_i}{S_{i-1}}\right) \)</span>  and <span class="math notranslate nohighlight">\(\bar x = \frac{1}{N} \sum_{i=1}^N x_i \)</span> is the mean log returns in the sample, also called drift. As the drift, which is a log return, may greatly depend on the sample considered and it is should be small in the period considered, by setting <span class="math notranslate nohighlight">\(\bar x = 0\)</span> we reduce a source of potential noise in our volatility estimate <span id="id1">[<a class="reference internal" href="#id6"><span>Sin10</span></a>]</span>.</p>
+<p><strong>From Sample to Population Estimate</strong> Since we are actually interested in the population variance, we must know how to infer it from the sample variance <span id="id2">[<a class="reference internal" href="#id7"><span>CarolAlexander</span></a>]</span>. The sample variance defined above is a well known <em>biased estimator</em> of the population variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>, so that it needs to be multiplied by a factor <span class="math notranslate nohighlight">\(n/(n-1)\)</span> to remove the bias <span id="id3">[<a class="reference internal" href="#id6"><span>Sin10</span></a>]</span> (this is called Bernoulli’s correction):</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
 \sigma^2 = \frac{N}{N - 1} s^2
@@ -313,10 +315,15 @@ s^2 = \frac{1}{N} \sum_{i=1}^N \left(x_i - \bar x \right)^2
 \[\begin{align*}
 var(s) \approx \frac{\sigma^2}{2N} 
 \end{align*}\]</div>
-<p>In fact, for small <span class="math notranslate nohighlight">\(N\)</span> such as the commonly used <span class="math notranslate nohighlight">\(N=20\)</span> or <span class="math notranslate nohighlight">\(N=30\)</span>, the uncertainity on the sample variance can be quite high. Much better to use N of 60 and above.</p>
+<p>In fact, for small <span class="math notranslate nohighlight">\(N\)</span> such as the commonly used <span class="math notranslate nohighlight">\(N=20\)</span> or <span class="math notranslate nohighlight">\(N=30\)</span>, the uncertainity on the sample variance can be quite high. Much better to use N of 60 and above <span id="id4">[<a class="reference internal" href="#id6"><span>Sin10</span></a>]</span>.</p>
 <p>So why shouldn’t we use always a high N in our volatility estimate? Firstly, a high N could make jumps or trading discountinity persist in our estimate, leading to an overestimate. Secondly, since often we use daily closes as pricing data, looking up to 60 days in the past may provide us with information on volatility which are not anymore current.</p>
-<div class="cell tag_remove-input docutils container">
+<p><strong>Bitcoin Data</strong> Although Bitcoin is traded 24/7 globally, it does often presents pricing discountinity due to jumps of its price. Moreover, volatility regimes shift in Bitcoin happens very quickly: 60 daily closes would be a far too long time period to have an up-to-date volatility estimate.
+If we want to be accurate in our estimate of volatility and at the same time avoid the impact of the jumps on the data, we can use a high N but use more granular data, such as hourly data, instead of daily closes.
+We must take that in consideration when we annualize the volatility by multiplying with the correct factor.</p>
 </div>
+<div class="section" id="analysis">
+<h2>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h2>
+<p>In the first chart, I plotted Bitcoin’s close on close annualized hourly volatility with a period of 60 hours.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">estimate_realized_volatility</span><span class="p">(</span><span class="n">closes</span><span class="p">):</span>
@@ -328,28 +335,11 @@ var(s) \approx \frac{\sigma^2}{2N}
 
     <span class="n">pop_variance</span> <span class="o">=</span> <span class="p">(</span><span class="n">sample_variance</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">60</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">365</span><span class="o">*</span><span class="mi">24</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">pop_variance</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volatilities</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">estimate_realized_volatility</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;numba&#39;</span><span class="p">)</span>
+
+<span class="n">volatilities</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">estimate_realized_volatility</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;numba&#39;</span><span class="p">)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">volatilities</span><span class="o">=</span><span class="n">volatilities</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Bitcoin Data</strong> Although Bitcoin is traded 24/7 globally, it does often presents pricing discountinity due to jumps of its price. Moreover, volatility regimes shift in Bitcoin happens very quickly: 60 daily closes would be a far too long time period to have an up-to-date volatility estimate.
-If we want to be accurate in our estimate of volatility and at the same time avoid the impact of the jumps on the data, we can use a high N but use more granular data, such as hourly data, instead of daily closes.
-We must take that in consideration when we annualize the volatility by multiplying with the correct factor.</p>
-</div>
-<div class="section" id="analysis">
-<h2>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h2>
-<p>In the first chart, I plotted Bitcoin’s close on close annualized hourly volatility with a period of 60 hours.</p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;timestamp&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;volatilities&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;ko&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">get_legend</span><span class="p">()</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span>
@@ -359,12 +349,14 @@ We must take that in consideration when we annualize the volatility by multiplyi
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Annualized Volatility (Multiple of 100%)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;volatility.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bitcoin_realized_volatility_6_0.png" src="_images/bitcoin_realized_volatility_6_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Annualized Volatility (Multiple of 100%)&#39;)
+</pre></div>
+</div>
+<img alt="_images/bitcoin_realized_volatility_3_1.png" src="_images/bitcoin_realized_volatility_3_1.png" />
 </div>
 </div>
 <p>Already from this very high view graph, we can see a few things:</p>
@@ -378,9 +370,7 @@ We must take that in consideration when we annualize the volatility by multiplyi
 <p>How can we extract more information from the data? Since we have pricing data with a decent resolution, we can build histograms of the volatilites, by taking slices of our sample, and see how they have changed: i.e we want to compare volatility regimes at different periods in the history of Bitcoin.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
-
-<span class="n">cmap</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;Set2&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cmap</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;Set2&#39;</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 
@@ -403,13 +393,14 @@ We must take that in consideration when we annualize the volatility by multiplyi
 <span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s1">&#39;Author: Marco Giglio&#39;</span><span class="p">,</span>
          <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
          <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;distribution_subplots.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bitcoin_realized_volatility_8_0.png" src="_images/bitcoin_realized_volatility_8_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.8, 0.05, &#39;Author: Marco Giglio&#39;)
+</pre></div>
+</div>
+<img alt="_images/bitcoin_realized_volatility_5_1.png" src="_images/bitcoin_realized_volatility_5_1.png" />
 </div>
 </div>
 <p>The histograms show the distribution of volatilities within the years of 2012, 2016, 2017 and 2020. The dashed line is the median volatility for that year. We can notice a few things:</p>
@@ -448,14 +439,14 @@ We must take that in consideration when we annualize the volatility by multiplyi
 <span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s1">&#39;Author: Marco Giglio&#39;</span><span class="p">,</span>
          <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
          <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
-
-
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;rolling_subplot.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bitcoin_realized_volatility_10_0.png" src="_images/bitcoin_realized_volatility_10_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.8, 0.05, &#39;Author: Marco Giglio&#39;)
+</pre></div>
+</div>
+<img alt="_images/bitcoin_realized_volatility_7_1.png" src="_images/bitcoin_realized_volatility_7_1.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -474,26 +465,34 @@ We must take that in consideration when we annualize the volatility by multiplyi
 <span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;Author: Marco Giglio&#39;</span><span class="p">,</span>
          <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
          <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;quartiles.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bitcoin_realized_volatility_11_0.png" src="_images/bitcoin_realized_volatility_11_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.8, 0.1, &#39;Author: Marco Giglio&#39;)
+</pre></div>
 </div>
+<img alt="_images/bitcoin_realized_volatility_8_1.png" src="_images/bitcoin_realized_volatility_8_1.png" />
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="future-research-direction">
-<h1>Future Research Direction<a class="headerlink" href="#future-research-direction" title="Permalink to this headline">¶</a></h1>
+<h2>Future Research Direction<a class="headerlink" href="#future-research-direction" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>Alternative estimators</strong>: the close-on-close volatility estimator cannot handle jumps in returns well, as they increase volatility for the entire window/period before dropping out. Alternatives model exists, such as the Exponentially Weighted Moving Average (EWMA) and the family of GARCH models.</p></li>
 <li><p><strong>High Frequency Data</strong>: the easiness in which today we can collect and process high-frequency pricing data has clearly have an impact on volatility measures: today, it is possible to collect tick-by-tick/sub-second pricing data. But on timescales so short, market microstructure, such as the bid-ask spread and exchange liquidity will have a large effect on the volatility estimate. It is also possible that high frequency data would show that difference currency pairs presents different volatilities.</p></li>
 <li><p><strong>Volatility of Volatility</strong>: How does volatility itself change over time and how it has been changing in the last decade?</p></li>
 </ul>
-<div class="toctree-wrapper compound">
+<p id="id5"><dl class="citation">
+<dt class="label" id="id6"><span class="brackets">Sin10</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id3">2</a>,<a href="#id4">3</a>)</span></dt>
+<dd><p>Euan Sinclair. <em>Option Trading: Pricing and Volatility Strategies and Techniques</em>. Willey-Trading, 2010.</p>
+</dd>
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id2">CarolAlexander</a></span></dt>
+<dd><p>Carol Alexander. Essential quantative finance, topic 3: statistics, inference, stochastic processes. URL: <a class="reference external" href="https://www.coalexander.com/learning-resources">https://www.coalexander.com/learning-resources</a>.</p>
+</dd>
+</dl>
+</p>
 </div>
 </div>
 
@@ -522,7 +521,8 @@ We must take that in consideration when we annualize the volatility by multiplyi
         
         <div class='prev-next-bottom'>
             
-    <a class='right-next' id="next-link" href="finance.html" title="next page">Notes on Quantitative Finance</a>
+    <a class='left-prev' id="prev-link" href="finance.html" title="previous page">Notes on Quantitative Finance</a>
+    <a class='right-next' id="next-link" href="statistics.html" title="next page">Notes on Statistics and Finance</a>
 
         </div>
         
