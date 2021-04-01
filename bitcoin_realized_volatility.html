@@ -243,6 +243,11 @@
    Future Research Direction
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliography">
+   Bibliography
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -314,7 +319,6 @@ We must take that in consideration when we annualize the volatility by multiplyi
 
 <span class="n">cmap</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;cool&#39;</span><span class="p">)</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;timestamp&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;volatilities&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="c1">#ax.get_legend().remove()</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s1">&#39;Author: Marco Giglio&#39;</span><span class="p">,</span>
@@ -402,10 +406,18 @@ We must take that in consideration when we annualize the volatility by multiplyi
     <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="o">%</span><span class="k">2</span>], x=&#39;timestamp&#39;, y=[&#39;mean&#39;,&#39;median&#39;],ylabel=&#39;Ann. Vol.&#39;, sharex=True)
                 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">):</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.5</span><span class="p">))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
     
-    
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;3 months Rolling Window of Volatilites&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;6 months Rolling Window of Volatilites&quot;</span><span class="p">)</span>    
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;12 Months Rolling Window of Volatilites&quot;</span><span class="p">)</span>    
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;24 Months Rolling Window of Volatilites&quot;</span><span class="p">)</span>    
+
+
+
+
 <span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;Author: Marco Giglio&#39;</span><span class="p">,</span>
          <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
          <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
@@ -463,8 +475,11 @@ We must take that in consideration when we annualize the volatility by multiplyi
 <li><p><strong>Alternative estimators</strong>: the close-on-close volatility estimator cannot handle jumps in returns well, as they increase volatility for the entire window/period before dropping out. Alternatives model exists, such as the Exponentially Weighted Moving Average (EWMA) and the family of GARCH models.</p></li>
 <li><p><strong>High Frequency Data</strong>: today we can collect and process high-frequency pricing data with easy and in theory we could collect and analyze tick-by-tick data. On timescales so short, market microstructure, such as the bid-ask spread and exchange liquidity will have a large effect on the volatility estimate, but there are tools and instruments that we can use to analyze and decouple those effects.</p></li>
 <li><p><strong>Volatility of Volatility</strong>: How does volatility itself change over time and how it has been changing in the last decade?</p></li>
-<li><p><strong>Impacts of Derivatives</strong>: 2016 was the last year spot Bitcoin volumes where comparable in size with derivatives volumes. Derivatives enable market participants to use extreme leverage, which can increase the size of price moves, especially when the price falls and overleverage traders are liquidated. Can derivatives have a measureable impact on Bitcoin volatility then?</p></li>
+<li><p><strong>Impacts of Derivatives</strong>: 2016 was the last year spot Bitcoin volumes where comparable in size with derivatives volumes. In May 2016, BitMex launched the first BTCUSD perpetual swap, an innovation that had a large impact in the crypto industry, and it was copied by many other centralized and decentralized exchanges. Derivatives enable market participants to use extreme leverage, which can increase the size of price moves, especially when the price falls and overleverage traders are liquidated. Can derivatives have a measureable impact on Bitcoin volatility then? This is something worth to look into.</p></li>
 </ul>
+</div>
+<div class="section" id="bibliography">
+<h2>Bibliography<a class="headerlink" href="#bibliography" title="Permalink to this headline">¶</a></h2>
 <p id="id5"><dl class="citation">
 <dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id2">Ale</a></span></dt>
 <dd><p>Carol Alexander. Essential quantative finance, topic 3: statistics, inference, stochastic processes. URL: <a class="reference external" href="https://www.coalexander.com/learning-resources">https://www.coalexander.com/learning-resources</a>.</p>
