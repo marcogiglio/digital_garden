@@ -66,7 +66,7 @@
 <meta property="og:url"         content="https://marcogiglio.github.io/statistics.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Notes on Statistics and Finance" />
-<meta property="og:description" content="Notes on Statistics and Finance  If we have a random variable X, then a sample of size n consist of n observations on X [Ale]. The characteristics of this sampl" />
+<meta property="og:description" content="Notes on Statistics and Finance  If we have a random variable X, then a sample of size n consist of n observations on X [Ale21]. The characteristics of this sam" />
 
 
 <meta name="twitter:card" content="summary" />
@@ -242,7 +242,7 @@
                 
   <div class="section" id="notes-on-statistics-and-finance">
 <h1>Notes on Statistics and Finance<a class="headerlink" href="#notes-on-statistics-and-finance" title="Permalink to this headline">¶</a></h1>
-<p>If we have a random variable <span class="math notranslate nohighlight">\(X\)</span>, then a sample of size <span class="math notranslate nohighlight">\(n\)</span> consist of <span class="math notranslate nohighlight">\(n\)</span> observations on <span class="math notranslate nohighlight">\(X\)</span> <span id="id1">[<a class="reference internal" href="finance.html#id4"><span>Ale</span></a>]</span>.
+<p>If we have a random variable <span class="math notranslate nohighlight">\(X\)</span>, then a sample of size <span class="math notranslate nohighlight">\(n\)</span> consist of <span class="math notranslate nohighlight">\(n\)</span> observations on <span class="math notranslate nohighlight">\(X\)</span> <span id="id1">[<a class="reference internal" href="bitcoin_realized_volatility.html#id8"><span>Ale21</span></a>]</span>.
 The characteristics of this sample can be represented using a sample statistics such as:</p>
 <ul class="simple">
 <li><p><strong>Mean <span class="math notranslate nohighlight">\(\bar x \)</span></strong>: a measure of location of the sample. Alternatives measures of sample location are median and mode.</p></li>
@@ -294,7 +294,7 @@ The characteristics of this sample can be represented using a sample statistics 
 <p>Since we don’t kow the <span class="math notranslate nohighlight">\(\sigma\)</span> of the population, there is an additional theorical result we can use for our purpose, if we suppose that the random variable X approximate a normal distribution <span class="math notranslate nohighlight">\(N(\mu, \sigma^2)\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\frac{\bar x - \mu}{\frac{s}{\sqrt n}} \approx t_{n-1} \]</div>
-<p>An example taken from <span id="id2">[<a class="reference internal" href="finance.html#id4"><span>Ale</span></a>]</span>, using scipy</p>
+<p>An example taken from <span id="id2">[<a class="reference internal" href="bitcoin_realized_volatility.html#id8"><span>Ale21</span></a>]</span>, using scipy</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">t</span>
@@ -443,6 +443,16 @@ P(X &lt; t*) = 0.05</p>
   <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'G-1HVJKD9C3J', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
     
   </body>
 </html>
