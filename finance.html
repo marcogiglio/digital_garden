@@ -31,7 +31,6 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -44,7 +43,6 @@
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/tabs.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -59,8 +57,6 @@
     <link rel="canonical" href="https://marcogiglio.github.io/finance.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Studying Bitcoin’s Historical Volatility" href="bitcoin_realized_volatility.html" />
-    <link rel="prev" title="My Digital Garden" href="intro.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -97,24 +93,7 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Notes on Quantitative Finance
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="bitcoin_realized_volatility.html">
-   Studying Bitcoin’s Historical Volatility
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="statistics.html">
-   Notes on Statistics and Finance
-  </a>
- </li>
-</ul>
-
+    
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -263,7 +242,7 @@
 <h3>Log Returns<a class="headerlink" href="#log-returns" title="Permalink to this headline">¶</a></h3>
 <p>The return between two consecutive periods in the timeseries is simply <span class="math notranslate nohighlight">\( r_i = \frac{S_i - S_{i-1}}{S_{i-1}}\)</span>. Often, we are interested in the cumulative or compound return of an asset between two timestep <span class="math notranslate nohighlight">\( T_1 \)</span> and <span class="math notranslate nohighlight">\(T_2 \)</span>, so we find that:</p>
 <div class="math notranslate nohighlight" id="equation-compound">
-<span class="eqno">(1)<a class="headerlink" href="#equation-compound" title="Permalink to this equation">¶</a></span>\[\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-compound" title="Permalink to this equation">¶</a></span>\[\]</div>
 <div class="math notranslate nohighlight">
 \[
 r_{T_2} = \prod_{i=T_1}^{T_2} r_i
@@ -290,8 +269,8 @@ thanks to the log approximation \)</span>\ln(1+x) \approx x <span class="math no
 <h3>Variance and Volatility<a class="headerlink" href="#variance-and-volatility" title="Permalink to this headline">¶</a></h3>
 <p>As we have now an empirical defined distribution of log returns, we can talk about the mean <span class="math notranslate nohighlight">\( E[x]\)</span>, which is the first moment of the distribution, and the variance <span class="math notranslate nohighlight">\(E[x^2]\)</span>,  its second moment.</p>
 <p>The volatility of returns <span class="math notranslate nohighlight">\( \sigma \)</span> is defined as the square root of the variance of the log return distribution. Since the distribution can be approximated to a normal one, the volatility is simple the standard deviation.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5eb967a6-ae66-44c3-9a62-d5695a7aca96">
-<span class="eqno">(2)<a class="headerlink" href="#equation-5eb967a6-ae66-44c3-9a62-d5695a7aca96" title="Permalink to this equation">¶</a></span>\[\begin{gather}
+<div class="amsmath math notranslate nohighlight" id="equation-f273adb1-c809-4673-bff8-2582e33ebc60">
+<span class="eqno">()<a class="headerlink" href="#equation-f273adb1-c809-4673-bff8-2582e33ebc60" title="Permalink to this equation">¶</a></span>\[\begin{gather}
 \sigma^2 = \frac{1}{N} \sum_{i=1}^N \left(x_i - \bar x \right)^2
 x_i = \ln\left(\frac{S_i}{S_{i-1}}\right) 
 \bar x = \frac{1}{N} \sum_{i=1}^N x_i $ 
@@ -364,8 +343,6 @@ s^2 = \frac{1}{N} \sum_{i=1}^N x_i^2
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">My Digital Garden</a>
-    <a class='right-next' id="next-link" href="bitcoin_realized_volatility.html" title="next page">Studying Bitcoin’s Historical Volatility</a>
 
         </div>
         
