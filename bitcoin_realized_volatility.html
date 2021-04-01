@@ -255,6 +255,11 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#future-research-direction">
    Future Research Direction
   </a>
@@ -299,8 +304,8 @@ We also want an estimator that is stable from sample to sample: the less prone t
 \[\begin{align*}
 s^2 = \frac{1}{N} \sum_{i=1}^N \left(x_i - \bar x \right)^2
 \end{align*}\]</div>
-<p>where <span class="math notranslate nohighlight">\( x_i = \ln\left(\frac{S_i}{S_{i-1}}\right) \)</span>  and <span class="math notranslate nohighlight">\(\bar x = \frac{1}{N} \sum_{i=1}^N x_i \)</span> is the mean log returns in the sample, also called drift. As the drift, which is a log return, may greatly depend on the sample considered and it is should be small in the period considered, by setting <span class="math notranslate nohighlight">\(\bar x = 0\)</span> we reduce a source of potential noise in our volatility estimate <span id="id1">[<a class="reference internal" href="finance.html#id3"><span>Sin10</span></a>]</span>.</p>
-<p><strong>From Sample to Population Estimate</strong> Since we are actually interested in the population variance, we must know how to infer it from the sample variance <span id="id2">[<a class="reference internal" href="finance.html#id4"><span>Ale</span></a>]</span>. The sample variance defined above is a well known <em>biased estimator</em> of the population variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>, so that it needs to be multiplied by a factor <span class="math notranslate nohighlight">\(n/(n-1)\)</span> to remove the bias <span id="id3">[<a class="reference internal" href="finance.html#id3"><span>Sin10</span></a>]</span> (this is called Bernoulli’s correction):</p>
+<p>where <span class="math notranslate nohighlight">\( x_i = \ln\left(\frac{S_i}{S_{i-1}}\right) \)</span>  and <span class="math notranslate nohighlight">\(\bar x = \frac{1}{N} \sum_{i=1}^N x_i \)</span> is the mean log returns in the sample, also called drift. As the drift, which is a log return, may greatly depend on the sample considered and it is should be small in the period considered, by setting <span class="math notranslate nohighlight">\(\bar x = 0\)</span> we reduce a source of potential noise in our volatility estimate <span id="id1">[<a class="reference internal" href="#id6"><span>Sin10</span></a>]</span>.</p>
+<p><strong>From Sample to Population Estimate</strong> Since we are actually interested in the population variance, we must know how to infer it from the sample variance <span id="id2">[<a class="reference internal" href="#id7"><span>Ale</span></a>]</span>. The sample variance defined above is a well known <em>biased estimator</em> of the population variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>, so that it needs to be multiplied by a factor <span class="math notranslate nohighlight">\(n/(n-1)\)</span> to remove the bias <span id="id3">[<a class="reference internal" href="#id6"><span>Sin10</span></a>]</span> (this is called Bernoulli’s correction):</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
 \sigma^2 = \frac{N}{N - 1} s^2
@@ -310,9 +315,9 @@ s^2 = \frac{1}{N} \sum_{i=1}^N \left(x_i - \bar x \right)^2
 \[\begin{align*}
 var(s) \approx \frac{\sigma^2}{2N} 
 \end{align*}\]</div>
-<p>In fact, for small <span class="math notranslate nohighlight">\(N\)</span> such as the commonly used <span class="math notranslate nohighlight">\(N=20\)</span> or <span class="math notranslate nohighlight">\(N=30\)</span>, the uncertainity on the sample variance can be quite high. Much better to use N of 60 and above <span id="id4">[<a class="reference internal" href="finance.html#id3"><span>Sin10</span></a>]</span>.</p>
+<p>In fact, for small <span class="math notranslate nohighlight">\(N\)</span> such as the commonly used <span class="math notranslate nohighlight">\(N=20\)</span> or <span class="math notranslate nohighlight">\(N=30\)</span>, the uncertainity on the sample variance can be quite high. Much better to use N of 60 and above <span id="id4">[<a class="reference internal" href="#id6"><span>Sin10</span></a>]</span>.</p>
 <p>So why shouldn’t we use always a high N in our volatility estimate? Firstly, a high N could make jumps or trading discountinity persist in our estimate, leading to an overestimate. Secondly, since often we use daily closes as pricing data, looking up to 60 days in the past may provide us with information on volatility which are not anymore current.</p>
-<p><strong>Bitcoin Data</strong> Although Bitcoin is traded 24/7 globally, it does often presents pricing discountinity due to jumps of its price. Moreover, volatility regimes shift in Bitcoin happens very quickly: 60 daily closes would be a far too long time period to have an up-to-date volatility estimate.
+<p><strong>Bitcoin Data</strong> Although Bitcoin is traded 24/7 globally, it does often presents large price movements. Moreover, volatility regimes shift in Bitcoin happens very quickly: 60 daily closes would be a far too long time period to have an up-to-date volatility estimate.
 If we want to be accurate in our estimate of volatility and at the same time avoid the impact of the jumps on the data, we can use a high N but use more granular data, such as hourly data, instead of daily closes.
 We must take that in consideration when we annualize the volatility by multiplying with the correct factor.</p>
 </div>
@@ -363,7 +368,7 @@ We must take that in consideration when we annualize the volatility by multiplyi
 <p>How can we extract more information from the data? Since we have pricing data with a decent resolution, we can build histograms of the volatilites, by taking slices of our sample, and see how they have changed: i.e we want to compare volatility regimes at different periods in the history of Bitcoin.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cmap</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;Set2&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cmap</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;plasma&#39;</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 
@@ -394,18 +399,18 @@ We must take that in consideration when we annualize the volatility by multiplyi
 <img alt="_images/bitcoin_realized_volatility_5_0.png" src="_images/bitcoin_realized_volatility_5_0.png" />
 </div>
 </div>
-<p>The histograms show the distribution of volatilities within the years of 2012, 2016, 2017 and 2020. The dashed line is the median volatility for that year. We can notice a few things:</p>
+<p>The histograms show the distribution of volatilities in every year between 2013 and 2021, althought the data for the current solar year is clearly incomplete. The dashed line in each subplot is the median volatility for that year. We can notice a few things:</p>
 <ul class="simple">
-<li><p>The distribution of volatilities is highly skewed and it has also high kurtosis (fat tails)</p></li>
-<li><p>The median volatility in 2012 and 2017 is elevated and very similar.</p></li>
-<li><p>2016 was a very atypical year: the volatility distribution is very skewed and the median volatility is much lower than in later years.</p></li>
-<li><p>2020 volatility is higher than 2016</p></li>
+<li><p>The distribution of volatilities can be roughly approximated by a very negatively skewed, leptokurtic (high kurtosis) normal distribution</p></li>
+<li><p>We can see how median volatility evolves over time, increasing in bull markets and decreasing in bear markets</p></li>
+<li><p>2016 had a very low volatility, much lower than any later years</p></li>
+<li><p>Bitcoin’s median volatility seems to range between 50% and 100% annualized volatility, but it doesn’t appear to be going down significantly over time</p></li>
 </ul>
-<p>Could it be that our conclusions are due to the way we sliced the data?</p>
+<p>Could it be that our conclusions are due to the way we sliced the data, from the beginning to the end of each solar year?</p>
 </div>
 <div class="section" id="mean-and-median-over-time-using-rolling-windows">
 <h3>Mean and Median Over Time using Rolling Windows<a class="headerlink" href="#mean-and-median-over-time-using-rolling-windows" title="Permalink to this headline">¶</a></h3>
-<p>Another way to analize the data, it is to plot the median and mean over time of a rolling window of our sample. We can also compare different window sizes to see how the median and mean value change.</p>
+<p>Another way to analize the data, it is to plot the median and mean over time of a rolling window of our sample. We can also compare different window sizes to see how the size of the slice can affect our data.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the mean and the std of the data over a rolling 3, 6, 12, 24-months windows </span>
@@ -438,6 +443,13 @@ We must take that in consideration when we annualize the volatility by multiplyi
 <img alt="_images/bitcoin_realized_volatility_7_0.png" src="_images/bitcoin_realized_volatility_7_0.png" />
 </div>
 </div>
+<p>The evolution of the median and mean volatility over time clearly shows that:</p>
+<ul class="simple">
+<li><p>Volatility starts trending in bull markets but it increase extremely during the first year after a bull market: the years of 2014 and 2018 show a very high volatility</p></li>
+<li><p>It takes a few years for volatility to stabilize after a bull market</p></li>
+<li><p>The year of 2016 was an outlier, with a very reduced volatility, lower than any following period in Bitcoin’s history. But not just its median volatility was lower, but as you can see in the following chart, every quantiles of the empirical distribution was lower.</p></li>
+</ul>
+<p>The following quantiles chart highlights even more how Bitcoin’s most volatile days are as volatile as in 2015, when Bitcoin’s market capitalization was 200-300 times lower.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">window_size</span> <span class="o">=</span> <span class="mi">12</span><span class="o">*</span><span class="mi">30</span><span class="o">*</span><span class="mi">24</span>
@@ -448,9 +460,10 @@ We must take that in consideration when we annualize the volatility by multiplyi
     <span class="n">serie</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">quantile</span><span class="p">))</span>
     <span class="n">df</span><span class="p">[</span><span class="n">serie</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">serie</span>
     
-<span class="n">ax</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;timestamp&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;0.1&#39;</span><span class="p">,</span> <span class="s1">&#39;0.25&#39;</span><span class="p">,</span> <span class="s1">&#39;0.75&#39;</span><span class="p">,</span> <span class="s1">&#39;0.9&#39;</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Annualized Volatility&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Quartiles from Empirical Dist. 12-Month Rolling Window of Volatilities&#39;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;timestamp&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;0.1&#39;</span><span class="p">,</span> <span class="s1">&#39;0.25&#39;</span><span class="p">,</span> <span class="s1">&#39;0.75&#39;</span><span class="p">,</span> <span class="s1">&#39;0.9&#39;</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Annualized Volatility (Multiples of 100%)&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Quantiles of 12-Month Rolling Window of Volatilities&#39;</span><span class="p">)</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;Author: Marco Giglio&#39;</span><span class="p">,</span>
          <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
          <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
@@ -459,17 +472,22 @@ We must take that in consideration when we annualize the volatility by multiplyi
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bitcoin_realized_volatility_8_0.png" src="_images/bitcoin_realized_volatility_8_0.png" />
+<img alt="_images/bitcoin_realized_volatility_9_0.png" src="_images/bitcoin_realized_volatility_9_0.png" />
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>Bitcoin’s volatility shows a pattern of increasing during bull markets and early bear markets cycles, to then slowly fall and stabilize. Bitcoin’s volatility today shows less extreme events than the early days of 2012-2014, but it’s median volatility is not much lower. Remarkably, Bitcoin has been considerably more volatile than the year 2016 in recent years, and the current 90% quantile of the last 12 months show Bitcoin being more volatile than the year 2015, when Bitcoin’s marketcap was 300 times lower than today.</p>
 </div>
 <div class="section" id="future-research-direction">
 <h2>Future Research Direction<a class="headerlink" href="#future-research-direction" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>Alternative estimators</strong>: the close-on-close volatility estimator cannot handle jumps in returns well, as they increase volatility for the entire window/period before dropping out. Alternatives model exists, such as the Exponentially Weighted Moving Average (EWMA) and the family of GARCH models.</p></li>
-<li><p><strong>High Frequency Data</strong>: the easiness in which today we can collect and process high-frequency pricing data has clearly have an impact on volatility measures: today, it is possible to collect tick-by-tick/sub-second pricing data. But on timescales so short, market microstructure, such as the bid-ask spread and exchange liquidity will have a large effect on the volatility estimate. It is also possible that high frequency data would show that difference currency pairs presents different volatilities.</p></li>
+<li><p><strong>High Frequency Data</strong>: today we can collect and process high-frequency pricing data with easy and in theory we could collect and analyze tick-by-tick data. On timescales so short, market microstructure, such as the bid-ask spread and exchange liquidity will have a large effect on the volatility estimate, but there are tools and instruments that we can use to analyze and decouple those effects.</p></li>
 <li><p><strong>Volatility of Volatility</strong>: How does volatility itself change over time and how it has been changing in the last decade?</p></li>
+<li><p><strong>Impacts of Derivatives</strong>: 2016 was the last year spot Bitcoin volumes where comparable in size with derivatives volumes. Derivatives enable market participants to use extreme leverage, which can increase the size of price moves, especially when the price falls and overleverage traders are liquidated. Can derivatives have a measureable impact on Bitcoin volatility then?</p></li>
 </ul>
 <p id="id5"><dl class="citation">
 <dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id2">Ale</a></span></dt>
